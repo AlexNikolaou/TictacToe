@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd357e78a633485d93f093488cfbcf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: 0, y: 0}
+  _position: {x: 0, y: 0}
   xSprite: {fileID: 21300000, guid: f4ea9378237094708a0c5f6bd93a3709, type: 3}
   oSprite: {fileID: 21300000, guid: 8323fd5a611b442fd9616ded3e3b90c1, type: 3}
   emptySprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
@@ -455,7 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd357e78a633485d93f093488cfbcf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: 0, y: 1}
+  _position: {x: 0, y: 1}
   xSprite: {fileID: 21300000, guid: f4ea9378237094708a0c5f6bd93a3709, type: 3}
   oSprite: {fileID: 21300000, guid: 8323fd5a611b442fd9616ded3e3b90c1, type: 3}
   emptySprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
@@ -884,7 +884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd357e78a633485d93f093488cfbcf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: 1, y: 1}
+  _position: {x: 1, y: 1}
   xSprite: {fileID: 21300000, guid: f4ea9378237094708a0c5f6bd93a3709, type: 3}
   oSprite: {fileID: 21300000, guid: 8323fd5a611b442fd9616ded3e3b90c1, type: 3}
   emptySprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
@@ -1651,7 +1651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd357e78a633485d93f093488cfbcf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: 1, y: 2}
+  _position: {x: 1, y: 2}
   xSprite: {fileID: 21300000, guid: f4ea9378237094708a0c5f6bd93a3709, type: 3}
   oSprite: {fileID: 21300000, guid: 8323fd5a611b442fd9616ded3e3b90c1, type: 3}
   emptySprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
@@ -1798,7 +1798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd357e78a633485d93f093488cfbcf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: 0, y: 2}
+  _position: {x: 0, y: 2}
   xSprite: {fileID: 21300000, guid: f4ea9378237094708a0c5f6bd93a3709, type: 3}
   oSprite: {fileID: 21300000, guid: 8323fd5a611b442fd9616ded3e3b90c1, type: 3}
   emptySprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
@@ -1945,7 +1945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd357e78a633485d93f093488cfbcf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: 2, y: 1}
+  _position: {x: 2, y: 1}
   xSprite: {fileID: 21300000, guid: f4ea9378237094708a0c5f6bd93a3709, type: 3}
   oSprite: {fileID: 21300000, guid: 8323fd5a611b442fd9616ded3e3b90c1, type: 3}
   emptySprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
@@ -2226,7 +2226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd357e78a633485d93f093488cfbcf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: 1, y: 0}
+  _position: {x: 1, y: 0}
   xSprite: {fileID: 21300000, guid: f4ea9378237094708a0c5f6bd93a3709, type: 3}
   oSprite: {fileID: 21300000, guid: 8323fd5a611b442fd9616ded3e3b90c1, type: 3}
   emptySprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
@@ -2681,7 +2681,6 @@ MonoBehaviour:
   - {fileID: 774774765}
   - {fileID: 767149972}
   - {fileID: 1408066160}
-  aiPlayer: 2
 --- !u!4 &1134012714
 Transform:
   m_ObjectHideFlags: 0
@@ -3005,7 +3004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd357e78a633485d93f093488cfbcf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: 2, y: 2}
+  _position: {x: 2, y: 2}
   xSprite: {fileID: 21300000, guid: f4ea9378237094708a0c5f6bd93a3709, type: 3}
   oSprite: {fileID: 21300000, guid: 8323fd5a611b442fd9616ded3e3b90c1, type: 3}
   emptySprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
@@ -3868,7 +3867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd357e78a633485d93f093488cfbcf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: 2, y: 0}
+  _position: {x: 2, y: 0}
   xSprite: {fileID: 21300000, guid: f4ea9378237094708a0c5f6bd93a3709, type: 3}
   oSprite: {fileID: 21300000, guid: 8323fd5a611b442fd9616ded3e3b90c1, type: 3}
   emptySprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}

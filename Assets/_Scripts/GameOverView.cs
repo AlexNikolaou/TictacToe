@@ -11,26 +11,36 @@ public class GameOverView : MonoBehaviour
     [SerializeField] TMP_Text wonDrawText;
 
     CanvasGroup canvasGroup;
-    bool activated = false;
+
+    bool _activated = false;
+
+#region Getters/Setters
 
     public bool IsActivated
     {
-        get{
-            return activated;
+        get
+        {
+            return _activated;
         }
     }
 
-    private void Awake() 
+#endregion
+
+    void Awake() 
     {
         canvasGroup = GetComponent<CanvasGroup>();
+        ResetTexts();
+    }
+
+    void ResetTexts()
+    {
         wonDrawText.text = "";
         playerText.text = "";
     }
 
     public void Set(TileValue[] tileValues)
     {
-        wonDrawText.text = "";
-        playerText.text = "";
+        ResetTexts();
 
         wonDrawText.text = tileValues.Length > 1 ? "DRAW" : "WON";
 
@@ -42,7 +52,7 @@ public class GameOverView : MonoBehaviour
 
     public void Animate(bool activate, Action onComplete = null)
     {
-        activated = activate;
+        _activated = activate;
 
         if(canvasGroup)
             canvasGroup.DOFade(activate ? 0.9f : 0.0f, 0.3f);

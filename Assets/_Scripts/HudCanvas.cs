@@ -12,31 +12,17 @@ public class HudCanvas : MonoBehaviour
     [SerializeField] GameOverView gameOverView;
     [SerializeField] ScoreBoard scoreBoard;
 
-    string[] dificulties; 
-
     void Start()
     {
         InitDificultyDropDown();
-
-        startBtn.onClick.AddListener(StartButtonCallback);
+        initButtons();
 
         GameManager.Instance.gameOverEvent += GameOver;
     }
 
-    void InitDificultyDropDown()
+    void initButtons()
     {
-        dificulties = new string[]{"Easy", "Medium", "Impossible"};
-
-        dificultySellectionDropDown.ClearOptions();
-        dificultySellectionDropDown.AddOptions(GetDificultiesList());
-        dificultySellectionDropDown.value = (int)GameManager.Instance.dificulty;
-
-        dificultySellectionDropDown.onValueChanged.AddListener(DificultyDropdownValueChanged);
-    }
-
-    void DificultyDropdownValueChanged(int value)
-    {
-        GameManager.Instance.dificulty = (Dificulty)value;
+        startBtn.onClick.AddListener(StartButtonCallback);
     }
 
     void StartButtonCallback() 
@@ -45,8 +31,24 @@ public class HudCanvas : MonoBehaviour
         Restart();
     }
 
+    void InitDificultyDropDown()
+    {
+        dificultySellectionDropDown.ClearOptions();
+        dificultySellectionDropDown.AddOptions(GetDificultiesList());
+        dificultySellectionDropDown.value = (int)GameManager.Instance.Dificulty;
+
+        dificultySellectionDropDown.onValueChanged.AddListener(DificultyDropdownValueChanged);
+    }
+
+    void DificultyDropdownValueChanged(int value)
+    {
+        GameManager.Instance.Dificulty = (Mode)value;
+    }
+
     List<TMP_Dropdown.OptionData> GetDificultiesList()
     {
+        string[] dificulties = Enum.GetNames(typeof(Mode));
+
         List<TMP_Dropdown.OptionData> list= new List<TMP_Dropdown.OptionData>();
 
         for(int i=0; i<dificulties.Length; i++)
@@ -57,7 +59,7 @@ public class HudCanvas : MonoBehaviour
         return list;
     }
 
-    private void OnDisable() 
+    void OnDisable() 
     {
         GameManager.Instance.gameOverEvent -= GameOver;
     }

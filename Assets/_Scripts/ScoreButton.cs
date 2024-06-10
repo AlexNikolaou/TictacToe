@@ -12,7 +12,7 @@ public class ScoreButton : MonoBehaviour
 
     Button button;
 
-    private void Awake() 
+    void Awake() 
     {
         button = GetComponent<Button>();    
     }

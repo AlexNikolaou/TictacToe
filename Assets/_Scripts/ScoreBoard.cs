@@ -10,19 +10,50 @@ public class ScoreBoard : MonoBehaviour
     [SerializeField] ScoreButton xPlayerBtn;
     [SerializeField] ScoreButton oPlayerBtn;
 
-    private void Start() 
+    void Start() 
     {   
-        xPlayerBtn.AddListener(()=>ButtonPressed(TileValue.X));
-        oPlayerBtn.AddListener(()=>ButtonPressed(TileValue.O));
+        InitButtons();
         UpdateScoreButtonsNPCTags();
         ResetScores();
 
         GameManager.Instance.gameOverEvent += AddWinPoint;
     }
 
+    void OnDisable() 
+    {
+        GameManager.Instance.gameOverEvent -= AddWinPoint;
+    }
+
+    void InitButtons()
+    {
+        xPlayerBtn.AddListener(()=>ButtonPressed(TileValue.X));
+        oPlayerBtn.AddListener(()=>ButtonPressed(TileValue.O));
+    }
+
+    void AddWinPoint(TileValue[] values)
+    {
+        if(values.Length == 0 || values.Length > 1)
+            return;
+
+        AddScore(values[0], 1);
+
+        UpdateScoreButtonsNPCTags();
+    }
+
+    void ButtonPressed(TileValue player)
+    {
+        if(GameManager.Instance.IsGameStarted)
+            return;
+
+        GameManager.Instance.IsNpcTurn = player == TileValue.X ? false : true;
+        GameManager.Instance.AIPlayer = player == TileValue.X ? TileValue.O : TileValue.X;
+        UpdateScoreButtonsNPCTags();
+        GameManager.Instance.RestartGame(false);
+    }
+
     public void UpdateScoreButtonsNPCTags()
     {
-        if(GameManager.Instance.aiPlayer == TileValue.X)
+        if(GameManager.Instance.AIPlayer == TileValue.X)
         {
             xPlayerBtn.EnableNPCTag(true);
             oPlayerBtn.EnableNPCTag(false);
@@ -33,22 +64,6 @@ public class ScoreBoard : MonoBehaviour
             oPlayerBtn.EnableNPCTag(true);
         }
     } 
-
-    private void OnDisable() 
-    {
-        GameManager.Instance.gameOverEvent -= AddWinPoint;
-    }
-
-    void ButtonPressed(TileValue player)
-    {
-        if(GameManager.Instance.IsGameStarted)
-            return;
-
-        GameManager.Instance.isNpcTurn = player == TileValue.X ? false : true;
-        GameManager.Instance.aiPlayer = player == TileValue.X ? TileValue.O : TileValue.X;
-        UpdateScoreButtonsNPCTags();
-        GameManager.Instance.RestartGame(false);
-    }
 
     public void ResetScores()
     {
@@ -71,7 +86,7 @@ public class ScoreBoard : MonoBehaviour
 
     public void AddScore(TileValue player, int value)
     {
-        int currentScore = 0;
+        int currentScore;
 
         switch(player)
         {
@@ -88,15 +103,5 @@ public class ScoreBoard : MonoBehaviour
             }
             break;
         }
-    }
-
-    void AddWinPoint(TileValue[] values)
-    {
-        if(values.Length == 0 || values.Length > 1)
-            return;
-
-        AddScore(values[0], 1);
-
-        UpdateScoreButtonsNPCTags();
     }
 }
